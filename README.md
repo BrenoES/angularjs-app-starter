@@ -4,7 +4,7 @@ Este projeto é um pequeno exemplo de CRUD com angularjs, mongodb , express e ty
 
 ## Iniciando a aplicação
 
-Clone o repositório de https://github.com/BrenoES/angularCrud;
+Clone o repositório de https://github.com/BrenoES/angularCrud.git;
 
 Rode o comando `npm install` ;
 
