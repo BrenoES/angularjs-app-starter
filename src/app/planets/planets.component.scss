@@ -1,0 +1,39 @@
+/* HeroesComponent's private CSS styles */
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card{
+  display: flex;
+  width: 400px;
+  height: 290px;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  border: #607D8B 1px solid;
+  &-title{
+    padding: 10px;
+    text-align: center;
+    width: calc(100% - 20px);
+    border-bottom: #607D8B 1px solid;
+    font-size: 40px;
+  }
+  &-content{
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    font-size: 26px;
+    border: none;
+    padding: 15px;
+    width:calc(100% - 30px)
+  }
+  .item{
+    text-align: left;
+    padding-bottom: 10px
+  }
+}
+
+
+
+

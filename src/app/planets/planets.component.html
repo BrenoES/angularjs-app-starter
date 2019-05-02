@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <div class="card-title">
+      {{$ctrl.planet.name}}
+    </div>
+    <div class="card-content">
+      <div class="item">
+        <span>Population: {{$ctrl.planet.population}}</span>
+      </div>
+      <div class="item">
+        <span>Climate: {{$ctrl.planet.climate}}</span>
+      </div>
+      <div class="item">
+        <span>Terrain: {{$ctrl.planet.terrain}}</span>
+      </div>
+      <div class="item">
+          <span>Featured in films: {{$ctrl.planet.films.length}}</span>
+        </div>
+    </div>
+  </div>
+  <button ng-click="$ctrl.getPlanets()"> Planet</button>
+</div>
+
