@@ -6,15 +6,15 @@ import { MessageService } from './message.service';
 @Injectable('planetService')
 export class PlanetService {
   private planets: Planet[] = [];
-  private plantesApi: Planet[] = [];
+  private planetsApi: Planet[] = [];
   private planetUrl = 'http://localhost:3001/planets/';
 
   private planetApiUrl = 'https://swapi.co/api/planets/?page=1';
 
   /*@ngInject*/
   constructor(private $http: IHttpService,
-              private $q: IQService,
-              private messageService: MessageService) { }
+    private $q: IQService,
+    private messageService: MessageService) { }
 
   /** GET plalnets from the server */
   getPlanetApi(): IPromise<any[]> {
@@ -40,8 +40,8 @@ export class PlanetService {
     const deferred = this.$q.defer<any[]>();
 
     this.$http.get<any>(this.planetUrl).then(response => {
-      this.plantesApi = response.data;
-      deferred.resolve(this.plantesApi);
+      this.planetsApi = response.data;
+      deferred.resolve(this.planetsApi);
 
     }, error => {
       this.log(error);
@@ -54,7 +54,7 @@ export class PlanetService {
   /** GET Planet by id */
   getPlanetById(id: number): IPromise<Planet> {
     const deferred = this.$q.defer<Planet>();
-    const planet = this.planets.find(p => p.id === id);
+    const planet = this.planetsApi['docs'].find(p => p._id === id);
     if (planet) {
       deferred.resolve(planet);
     } else {
@@ -73,7 +73,9 @@ export class PlanetService {
       this.log(error);
       deferred.resolve([]);
     }
-    const planets = this.planets.filter(planet => planet.name.includes(term));
+
+    const planets = this.planetsApi['docs'].filter(planet => planet.name && planet.name.includes(term));
+
     this.log(`found ${planets.length} planets whose name contains ${term}`);
     deferred.resolve(planets);
     return deferred.promise;
@@ -85,7 +87,7 @@ export class PlanetService {
   addPlanet(name: string, terrain: string, climate: string): void {
     const deferred = this.$q.defer<Planet>();
     const planet = { name, terrain, climate };
-    this.log('added new planet');
+    console.log('added new planet');
     deferred.resolve(planet);
     this.$http({
       url: this.planetUrl,

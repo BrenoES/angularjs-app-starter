@@ -2,10 +2,10 @@
 import { NgModule } from 'angular-ts-decorators';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PlanetsForm } from './planet-form/planet-form';
 import { PlanetsComponent } from './planets/planets.component';
 import { MessageService } from './services/message.service';
 import { PlanetService } from './services/planet.service';
-
 import './styles.css';
 
 @NgModule({
@@ -15,7 +15,8 @@ import './styles.css';
   ],
   declarations: [
     AppComponent,
-    PlanetsComponent
+    PlanetsComponent,
+    PlanetsForm
   ],
   providers: [
     PlanetService,

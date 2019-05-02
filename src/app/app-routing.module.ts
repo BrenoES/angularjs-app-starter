@@ -1,6 +1,7 @@
 import { StateProvider } from '@uirouter/angularjs';
 import { Ng1StateDeclaration } from '@uirouter/angularjs/lib/interface';
 import { getTypeName, NgModule } from 'angular-ts-decorators';
+import { PlanetsForm } from './planet-form/planet-form';
 import { PlanetsComponent } from './planets/planets.component';
 
 export interface UiState extends Ng1StateDeclaration {
@@ -9,7 +10,8 @@ export interface UiState extends Ng1StateDeclaration {
 
 const routes: UiState[] = [
   { name: 'index', url: '', redirectTo: 'planets' },
-  { name: 'planets', url: '/planets', component: PlanetsComponent }
+  { name: 'planets', url: '/planets', component: PlanetsComponent },
+  { name: 'form', url: '/form', component: PlanetsForm }
 ];
 
 @NgModule({

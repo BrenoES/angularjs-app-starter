@@ -5,12 +5,13 @@ import { PlanetService } from '../services/planet.service';
 
 @Component({
     selector: 'app-heroes',
-    template: require('./planets.component.html'),
-    styles: [require('./planets.component.scss')]
+    template: require('./planet-form.html'),
+    styles: [require('./planet-form.scss')]
 })
-export class PlanetsComponent implements OnInit {
+export class PlanetsForm implements OnInit {
     planets: any;
     planet: Planet;
+    name =  true;
     /*@ngInject*/
     constructor(private planetService: PlanetService) {
 
@@ -24,12 +25,12 @@ export class PlanetsComponent implements OnInit {
         this.planetService.getPlanet()
             .then(planets => console.log(planets));
     }
-    searchById(id){
+    searchById(id) {
         this.planetService.getPlanetById(id)
             .then(planet => console.log(planet))
     }
 
-    searchByName(name){
+    searchByName(name) {
         this.planetService.searchPlanets(name)
             .then(planet => console.log(planet))
     }
