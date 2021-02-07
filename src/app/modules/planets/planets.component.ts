@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular-ts-decorators';
-import { Planet } from '../planet';
-import { PlanetService } from '../services/planet.service';
+import { Planet } from './shared/planet.model';
+import { PlanetService } from './shared/planet.service';
 
 @Component({
   selector: 'app-planets',
@@ -27,6 +27,7 @@ export class PlanetsComponent implements OnInit {
         this.planet = this.planets[0];
       });
   }
+
   getPlanets() {
     if (this.planets) {
       const index = Math.floor(Math.random() * this.planets.length);

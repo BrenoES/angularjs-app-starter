@@ -1,6 +1,10 @@
 {
   "extends": "tslint:recommended",
   "rules": {
+    "ordered-imports": [true, {
+      "import-sources-order": "any",
+      "named-imports-order": "case-insensitive"
+    }],
     "arrow-parens": ["as-needed", { "requireForBlockBody": true }],
     "arrow-return-shorthand": true,
     "callable-types": true,

@@ -1,11 +1,10 @@
-
-import { NgModule } from 'angular-ts-decorators';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PlanetsForm } from './planet-form/planet-form';
-import { PlanetsComponent } from './planets/planets.component';
-import { MessageService } from './services/message.service';
-import { PlanetService } from './services/planet.service';
+import { AppRoutingModule } from './app-routing.module';
+import { PlanetsComponent } from './modules/planets/planets.component';
+import { PlanetsForm } from './modules/planet-form/planet-form';
+import { PlanetService } from './modules/planets/shared/planet.service';
+import { MessageService } from './shared/services/message.service';
+import { NgModule } from 'angular-ts-decorators';
 import './styles.css';
 
 @NgModule({

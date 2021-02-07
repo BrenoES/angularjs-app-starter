@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from 'angular-ts-decorators';
-import { Planet } from '../planet';
-import { PlanetService } from '../services/planet.service';
+import { Planet } from '../planets/shared/planet.model';
+import { PlanetService } from '../planets/shared/planet.service';
 
 @Component({
     selector: 'app-heroes',
@@ -18,7 +18,7 @@ export class PlanetsForm implements OnInit {
     }
 
     ngOnInit() {
-        this.getPlanet()
+        this.getPlanet();
     }
 
     getPlanet() {
@@ -27,12 +27,12 @@ export class PlanetsForm implements OnInit {
     }
     searchById(id) {
         this.planetService.getPlanetById(id)
-            .then(planet => console.log(planet))
+            .then(planet => console.log(planet));
     }
 
     searchByName(name) {
         this.planetService.searchPlanets(name)
-            .then(planet => console.log(planet))
+            .then(planet => console.log(planet));
     }
 
     add(name: string, climate: string, terrain: string) {

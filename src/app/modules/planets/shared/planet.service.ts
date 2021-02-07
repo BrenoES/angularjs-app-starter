@@ -1,7 +1,7 @@
 import { IHttpService, IPromise, IQService } from 'angular';
 import { Injectable } from 'angular-ts-decorators';
-import { Planet } from '../planet';
-import { MessageService } from './message.service';
+import { Planet } from './planet.model';
+import { MessageService } from '../../../shared/services/message.service';
 
 @Injectable('planetService')
 export class PlanetService {
@@ -12,9 +12,11 @@ export class PlanetService {
   private planetApiUrl = 'https://swapi.co/api/planets/?page=1';
 
   /*@ngInject*/
-  constructor(private $http: IHttpService,
+  constructor(
+    private $http: IHttpService,
     private $q: IQService,
-    private messageService: MessageService) { }
+    private messageService: MessageService
+  ) { }
 
   /** GET plalnets from the server */
   getPlanetApi(): IPromise<any[]> {
