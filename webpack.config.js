@@ -20,21 +20,20 @@ module.exports = (env, argv) => {
       filename: '[name].[contenthash:4].css',
       chunkFilename: '[id].[contenthash:4].css'
     }),
-    new ForkTsCheckerWebpackPlugin({
-      tslint: true,
-      checkSyntacticErrors: true
-    })
+    new ForkTsCheckerWebpackPlugin()
   ];
 
   if (isProd) {
     plugins.push(
       new webpack.NormalModuleReplacementPlugin(
-        /\/environments\/environment\.ts/,  `${sourcePath}/environments/environment.prod.ts`
+        /\/environments\/environment\.ts/, `${sourcePath}/environments/environment.prod.ts`
       ),
-      new UglifyJsPlugin({ sourceMap: true })
+      new UglifyJsPlugin({
+        sourceMap: true
+      })
     );
   } else {
-    plugins.push(new webpack.NamedModulesPlugin(), new webpack.HotModuleReplacementPlugin());
+    plugins.push(new webpack.HotModuleReplacementPlugin());
   }
 
   const config = {
@@ -46,11 +45,12 @@ module.exports = (env, argv) => {
       filename: '[name].bundle.[hash:4].js',
     },
     module: {
-      rules: [
-        {
+      rules: [{
           test: /\.html$/,
           loader: 'html-loader',
-          options: { minimize: true }
+          options: {
+            minimize: true
+          }
         },
         {
           test: /\.css$/,
@@ -63,8 +63,7 @@ module.exports = (env, argv) => {
         {
           test: /\.ts$/,
           exclude: /node_modules/,
-          use: [
-            {
+          use: [{
               loader: 'ng-annotate-loader',
               options: {
                 ngAnnotate: 'ng-annotate-patched',
@@ -118,6 +117,8 @@ module.exports = (env, argv) => {
     },
     // devtool: 'eval-source-map',
     devServer: {
+      host: 'localhost',
+      port: 9000,
       contentBase: distPath,
       hot: true
     }

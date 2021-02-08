@@ -4,10 +4,7 @@ const path = require('path');
 const sourcePath = path.resolve(__dirname, 'src');
 
 const plugins = [
-  new ForkTsCheckerWebpackPlugin({
-    tslint: true,
-    checkSyntacticErrors: true
-  })
+  new ForkTsCheckerWebpackPlugin()
 ];
 
 module.exports = {

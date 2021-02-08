@@ -1,3 +1,4 @@
+import { StateProvider } from '@uirouter/angularjs';
 import { Component } from 'angular-ts-decorators';
 
 
@@ -8,5 +9,6 @@ import { Component } from 'angular-ts-decorators';
 })
 export class AppComponent {
   title = 'Planets Star Wars';
-  constructor() { }
+  //@ts-ignore
+  constructor(private $state:StateProvider) { }
 }

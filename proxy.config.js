@@ -1,9 +1,9 @@
-const proxy = [
-    {
-        context: '/',
-        target: 'http://localhost:8080',
-        pathRewrite: { '^/': '' }
-    }
-];
+// const proxy = [
+//     {
+//         context: '/',
+//         target: 'http://localhost:9000',
+//         pathRewrite: { '^/': '' }
+//     }
+// ];
 
-module.exports = proxy;
+// module.exports = proxy;

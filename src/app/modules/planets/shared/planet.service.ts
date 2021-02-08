@@ -7,9 +7,8 @@ import { MessageService } from '../../../shared/services/message.service';
 export class PlanetService {
   private planets: Planet[] = [];
   private planetsApi: Planet[] = [];
-  private planetUrl = 'http://localhost:3001/planets/';
 
-  private planetApiUrl = 'https://swapi.co/api/planets/?page=1';
+  private planetApiUrl = 'https://swapi.dev/api/planets/';
 
   /*@ngInject*/
   constructor(
@@ -26,7 +25,7 @@ export class PlanetService {
       const pageIndex = (response) ? Math.floor(Math.random() * 6 + 1) : 1;
       this.log('fetched planets');
       this.planets = response.data.results;
-      this.planetApiUrl = `https://swapi.co/api/planets/?page=${pageIndex}`;
+      this.planetApiUrl = `https://swapi.dev/api/planets/?page=${pageIndex}`;
       this.getPlanetApi();
       deferred.resolve(this.planets);
 
@@ -41,7 +40,7 @@ export class PlanetService {
   getPlanet(): IPromise<any[]> {
     const deferred = this.$q.defer<any[]>();
 
-    this.$http.get<any>(this.planetUrl).then(response => {
+    this.$http.get<any>(this.planetApiUrl).then(response => {
       this.planetsApi = response.data;
       deferred.resolve(this.planetsApi);
 
@@ -92,7 +91,7 @@ export class PlanetService {
     console.log('added new planet');
     deferred.resolve(planet);
     this.$http({
-      url: this.planetUrl,
+      url: this.planetApiUrl,
       method: 'POST',
       data: JSON.stringify(planet),
       headers: {
