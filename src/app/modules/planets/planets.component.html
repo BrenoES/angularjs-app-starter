@@ -1,28 +1,26 @@
 <div class="container-planet">
-  <div class="card-planet">
-    <div class="card-planet-title">
+  <div class="card-planet" ng-class="{'card-planet--is-loading':$ctrl.isLoading}">
+    <h2 class="card-planet__title">
       {{$ctrl.planet.name}}
-    </div>
-    <div class="card-planet-content">
-      <div class="item">
-        <span>Population: {{$ctrl.planet.population}}</span>
+    </h2>
+    <main class="card-planet__content">
+      <div class="card-planet__item">
+        <h6>Population</h6>
+        <p> {{$ctrl.planet.population}}</p>
       </div>
-      <div class="item">
-        <span>Climate: {{$ctrl.planet.climate}}</span>
+      <div class="card-planet__item">
+        <h6>Climate</h6>
+        <p> {{$ctrl.planet.climate}}</p>
       </div>
-      <div class="item">
-        <span>Terrain: {{$ctrl.planet.terrain}}</span>
+      <div class="card-planet__item">
+        <h6>Terrain</h6>
+        <p> {{$ctrl.planet.terrain}}</p>
       </div>
-      <div class="item">
-          <span>Featured in films: {{$ctrl.planet.films.length}}</span>
-        </div>
-    </div>
+      <div class="card-planet__item">
+        <h6>Featured in films</h6>
+        <p>{{$ctrl.planet.films.length}}</p>
+      </div>
+    </main>
   </div>
-  <button ng-click="$ctrl.getPlanets()"> next Planet</button>
-  
-  <div class="btn btn-link">
-      <a href="/#!/form">Acess form</a>
-  </div>
-
+  <button ng-click="$ctrl.getPlanets()"> Next Planet</button>
 </div>
-

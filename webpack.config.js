@@ -43,6 +43,7 @@ module.exports = (env, argv) => {
     output: {
       path: distPath,
       filename: '[name].bundle.[hash:4].js',
+      publicPath: '',
     },
     module: {
       rules: [{
@@ -84,14 +85,16 @@ module.exports = (env, argv) => {
           test: /\.(gif|png|jpe?g|svg)$/i,
           loader: 'file-loader',
           options: {
-            name: 'images/[name].[ext]'
+            name: 'images/[name].[ext]',
+            publicPath:'./'
           }
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,
           loader: 'file-loader',
           options: {
-            name: 'fonts/[name].[ext]'
+            name: 'fonts/[name].[ext]',
+            publicPath:'./'
           }
         }
       ],

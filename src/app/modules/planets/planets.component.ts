@@ -8,33 +8,27 @@ import { PlanetService } from './shared/planet.service';
   styles: [require('./planets.component.scss')]
 })
 export class PlanetsComponent implements OnInit {
-  planets: any;
   planet: Planet;
+  isLoading = true;
   /*@ngInject*/
   constructor(private planetService: PlanetService) {
 
   }
 
   ngOnInit() {
-    this.initPlanets();
-    this.planetService.getPlanet();
-  }
-
-  initPlanets(): void {
-    this.planetService.getPlanetApi()
-      .then((planets: Planet[]) => {
-        this.planets = planets;
-        this.planet = this.planets[0];
-      });
+    this.getPlanets();
   }
 
   getPlanets() {
-    if (this.planets) {
-      const index = Math.floor(Math.random() * this.planets.length);
-      this.planet = this.planets[index];
-      this.planetService.getPlanetApi().then(planets => this.planets = planets);
-    }
-
+    this.isLoading = true;
+    this.planetService.getPlanetApi()
+      .then(planet => {
+        this.planet = planet;
+        this.isLoading = false;
+      })
+      .catch(error => {
+        console.error(error);
+        this.isLoading = false;
+      });
   }
-
 }

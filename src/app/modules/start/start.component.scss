@@ -1,0 +1,19 @@
+@import './../../../styles/keyframes';
+
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-page__image {
+  max-width: 100%;
+  align-self: center;
+}
+
+.start-page__image--zoomScale {
+    transform: scale(1);
+    animation-name: zoomScale;
+    animation-duration: 2s;
+}

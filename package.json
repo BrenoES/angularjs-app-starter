@@ -55,7 +55,7 @@
     "eventemitter3": "3.1.0"
   },
   "scripts": {
-    "prestart": "rimraf dist & copyfiles -f src/assets/* dist/",
+    "prestart": "rimraf ./dist & copyfiles -f src/assets/* ./dist/",
     "start": "webpack serve --mode=development --open",
     "prebuild": "npm run prestart",
     "build": "webpack --mode=production --optimize-minimize",

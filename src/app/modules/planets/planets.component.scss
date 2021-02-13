@@ -4,36 +4,51 @@
   flex-direction: column;
   align-items: center;
 }
-.card-planet{
-  display: flex;
-  width: 400px;
-  height: 290px;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-  border: #607D8B 1px solid;
-  &-title{
-    padding: 10px;
-    text-align: center;
-    width: calc(100% - 0px);
-    border-bottom: #607D8B 1px solid;
-    font-size: 40px;
+
+.card-planet {
+  margin: 10px;
+  width: 300px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+
+  .card-planet__content {
+    padding: 0px 20px 30px;
   }
-  &-content{
-    display: flex;
-    align-content: flex-start;
-    flex-direction: column;
-    font-size: 23px;
-    border: none;
-    padding: 15px;
-    width:calc(100% - 30px)
+  .card-planet__title {
+    height: 60px;
+    margin: 30px 20px 0px;
   }
-  .item{
-    text-align: left;
-    padding-bottom: 10px
+  .card-planet__item {
+    height: 55px;
+    margin-top: 5px;
+    margin-bottom: 5px;
   }
 }
 
+.card-planet--is-loading {
+  .card-planet__title,
+  .card-planet__item {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+
+  .card-planet__title {
+    font-size: 0;
+  }
+  .card-planet__item > * {
+    visibility: hidden;
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
 
 
 
