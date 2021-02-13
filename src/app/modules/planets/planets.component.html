@@ -5,22 +5,22 @@
     </h2>
     <main class="card-planet__content">
       <div class="card-planet__item">
-        <h6>Population</h6>
+        <h5>Population</h5>
         <p> {{$ctrl.planet.population}}</p>
       </div>
       <div class="card-planet__item">
-        <h6>Climate</h6>
+        <h5>Climate</h5>
         <p> {{$ctrl.planet.climate}}</p>
       </div>
       <div class="card-planet__item">
-        <h6>Terrain</h6>
+        <h5>Terrain</h5>
         <p> {{$ctrl.planet.terrain}}</p>
       </div>
       <div class="card-planet__item">
-        <h6>Featured in films</h6>
+        <h5>Featured in films</h5>
         <p>{{$ctrl.planet.films.length}}</p>
       </div>
     </main>
   </div>
-  <button ng-click="$ctrl.getPlanets()"> Next Planet</button>
+  <app-button ng-click="$ctrl.getPlanets()">Next Planet</app-button>
 </div>

@@ -1,25 +1,23 @@
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PlanetsComponent } from './modules/planets/planets.component';
-import { PlanetService } from './modules/planets/shared/planet.service';
-import { MessageService } from './shared/services/message.service';
 import { NgModule } from 'angular-ts-decorators';
 import './styles.css';
-import { StartComponent } from './modules/start/start.component';
+import { SharedModule } from './shared/shared.module';
+import { PlanetsModule } from './modules/planets/planets.module';
+import { StartModule } from './modules/start/start.module';
 
 @NgModule({
-  id: 'AppModule',
+  id: AppModule.name,
   imports: [
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    PlanetsModule,
+    StartModule
   ],
   declarations: [
     AppComponent,
-    PlanetsComponent,
-    StartComponent
   ],
   providers: [
-    PlanetService,
-    MessageService,
   ],
   bootstrap: [AppComponent]
 })

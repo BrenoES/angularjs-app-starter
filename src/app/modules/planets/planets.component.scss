@@ -1,34 +1,44 @@
-/* Component's private CSS styles */
-.container-planet{
+@import '../../../styles/keyframes';
+
+.container-planet {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .card-planet {
   margin: 10px;
-  width: 300px;
+  width: 350px;
   background: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
 
-  .card-planet__content {
-    padding: 0px 20px 30px;
-  }
-  .card-planet__title {
-    height: 60px;
-    margin: 30px 20px 0px;
-  }
-  .card-planet__item {
-    height: 55px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
+.card-planet__content {
+  padding: 0px 20px 30px;
+}
+.card-planet__title {
+  height: 60px;
+  margin: 30px 20px 0px;
+}
+.card-planet__item {
+  height: 55px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-top: 1px solid #ddd;
+}
+
+.card-planet__item > * {
+  height: 1.1rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 .card-planet--is-loading {
   .card-planet__title,
-  .card-planet__item {
+  .card-planet__item > * {
     background: #eee;
     background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
     border-radius: 5px;
@@ -36,19 +46,8 @@
     animation: 1.5s shine linear infinite;
   }
 
-  .card-planet__title {
+  .card-planet__title,
+  .card-planet__item > * {
     font-size: 0;
   }
-  .card-planet__item > * {
-    visibility: hidden;
-  }
 }
-
-@keyframes shine {
-  to {
-    background-position-x: -200%;
-  }
-}
-
-
-
