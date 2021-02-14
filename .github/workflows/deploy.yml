@@ -12,9 +12,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 12.x
-      - uses: BrenoES/gha-git-credentials@v2-latest
+      - uses: fusion-engineering/setup-git-credentials@v2
         with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
+          credentials: ${{secrets.GIT_CREDENTIALS}}
       - run: npm install
       - run: npm run build
       - run: npm run deploy
