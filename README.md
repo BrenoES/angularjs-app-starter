@@ -1,10 +1,10 @@
 # angularjs-crud
 
-Este projeto é um pequeno exemplo de CRUD com angularjs, mongodb , express e typescript;
+Este projeto é um pequeno exemplo de angularjs e typescript, consumindo a api do https://swapi.dev/;
 
 ## Iniciando a aplicação
 
-Clone o repositório de https://github.com/BrenoES/angularCrud.git;
+Clone o repositório de https://github.com/BrenoES/angularjs-app-starter.git;
 
 Rode o comando `npm install` ;
 
