@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 
@@ -14,7 +13,8 @@ module.exports = (env, argv) => {
 
   const plugins = [
     new HtmlWebPackPlugin({
-      template: sourcePath + '/index.html'
+      template: sourcePath + '/index.ejs',
+      baseHref: isProd ? '/angularjs-app-starter/': '/'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash:4].css',
@@ -27,10 +27,7 @@ module.exports = (env, argv) => {
     plugins.push(
       new webpack.NormalModuleReplacementPlugin(
         /\/environments\/environment\.ts/, `${sourcePath}/environments/environment.prod.ts`
-      ),
-      new UglifyJsPlugin({
-        sourceMap: true
-      })
+      )
     );
   } else {
     plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -123,7 +120,9 @@ module.exports = (env, argv) => {
       host: 'localhost',
       port: 9000,
       contentBase: distPath,
-      hot: true
+      hot: true,
+      historyApiFallback: true,
+      publicPath: isProd ? '/angularjs-app-starter/': '/'
     }
   };
 

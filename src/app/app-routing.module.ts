@@ -1,5 +1,6 @@
 import { StateProvider } from '@uirouter/angularjs';
 import { Ng1StateDeclaration } from '@uirouter/angularjs/lib/interface';
+import { ILocationProvider } from 'angular';
 import { getTypeName, NgModule } from 'angular-ts-decorators';
 import { PlanetsComponent } from './modules/planets/planets.component';
 import { StartComponent } from './modules/start/start.component';
@@ -9,7 +10,7 @@ export interface UiState extends Ng1StateDeclaration {
 }
 
 const routes: UiState[] = [
-  { name: 'start', url: '', component: StartComponent },
+  { name: 'start', url: '/', component: StartComponent },
   { name: 'planets', url: '/planets', component: PlanetsComponent }
 ];
 
@@ -20,9 +21,15 @@ const routes: UiState[] = [
   ],
 })
 export class AppRoutingModule {
-  static config($stateProvider: StateProvider) {
+  static config($stateProvider: StateProvider, $locationProvider: ILocationProvider) {
     'ngInject';
-    routes.forEach(route => $stateProvider.state(getNg1StateDeclaration(route)));
+    routes.forEach(route => {
+      $stateProvider.state(getNg1StateDeclaration(route))
+    });
+
+    $locationProvider.html5Mode({
+      enabled: true
+    });
   }
 }
 

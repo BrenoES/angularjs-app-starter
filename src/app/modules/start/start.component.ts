@@ -1,5 +1,5 @@
 import { Component, OnInit } from 'angular-ts-decorators';
-const  imageStarWars = require('./../../../assets/images/start-banner.png');
+const imageStarWars = require('./../../../assets/images/start-banner.png');
 
 @Component({
   selector: 'app-start',
@@ -8,12 +8,8 @@ const  imageStarWars = require('./../../../assets/images/start-banner.png');
 })
 export class StartComponent implements OnInit {
   startWarsBanner = imageStarWars;
-/*@ngInject*/
-constructor() {
 
-}
+  ngOnInit() {
 
-ngOnInit() {
-
-}
+  }
 }

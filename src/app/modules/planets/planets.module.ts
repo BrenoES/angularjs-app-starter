@@ -4,7 +4,7 @@ import { PlanetService } from './shared/planet.service';
 import { PlanetsComponent } from './planets.component';
 
 @NgModule({
-    id: PlanetsModule.name,
+    id: 'PlanetsModule',
     imports: [],
     declarations: [
         PlanetsComponent

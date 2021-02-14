@@ -1,0 +1,15 @@
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm install
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run build
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: npm run deploy

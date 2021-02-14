@@ -9,6 +9,7 @@ import { Component } from 'angular-ts-decorators';
 })
 export class AppComponent {
   title = 'Planets Star Wars';
-  // @ts-ignore
+ 
+  /*@ngInject*/
   constructor(private $state:StateProvider) { }
 }

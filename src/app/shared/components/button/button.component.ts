@@ -10,11 +10,6 @@ export class ButtonComponent implements OnInit {
     @Input() link: string;
     @Input() target = '_self';
 
-    /*@ngInject*/
-    constructor() {
-
-    }
-
     ngOnInit() {
 
     }

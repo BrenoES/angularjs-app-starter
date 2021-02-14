@@ -7,7 +7,7 @@ import { PlanetsModule } from './modules/planets/planets.module';
 import { StartModule } from './modules/start/start.module';
 
 @NgModule({
-  id: AppModule.name,
+  id: 'AppModule',
   imports: [
     AppRoutingModule,
     SharedModule,
