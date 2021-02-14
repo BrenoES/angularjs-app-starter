@@ -12,9 +12,9 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 12.x
-      - uses: fusion-engineering/setup-git-credentials@v2
+       - uses: fregante/setup-git-token@v1
         with:
-          credentials: ${{secrets.GIT_CREDENTIALS}}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: npm install
       - run: npm run build
       - run: npm run deploy
