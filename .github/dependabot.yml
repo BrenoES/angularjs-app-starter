@@ -4,6 +4,12 @@
 # https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
 version: 2
+registries:
+    npm-npmjs:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    username: BrenoES
+    password: ${{secrets.MY_NPM_PASSWORD}}
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: "/" # Location of package manifests
